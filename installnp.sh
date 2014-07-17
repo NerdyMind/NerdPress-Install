@@ -83,6 +83,11 @@ rm -f master.zip
 mv nerdygitignore-master/.gitignore $(printf $thisPath)/.gitignore
 rm -rf nerdygitignore-master
 
+echo "Configuring git to play nice with the server"
+git config --global pack.windowMemory "100m"
+git config --global pack.SizeLimit "100m"
+git config --global pack.threads "1"
+
 echo "Setting up the site's Git Repository"
 git init --shared=all
 touch .git/hooks/post-commit
@@ -130,6 +135,8 @@ git push hub master
 echo "Cleaning Up . . ."
 #rm -f installnp.sh
 echo "NerdPress is installed! Get coding, NERD!"
-echo "So clone your site locally use something like:"
-echo "git clone ssh://dbonomo@dan.nerdymind.com/home/dbonomo/site_hub.git DANTEST"
+echo ""
+echo "To clone your site locally use this command, but swap out the user, domain, and local folder name:"
+echo ""
+echo "git clone ssh://user@domain.nerdymind.com/home/user/site_hub.git Name-Of-Local-Folder"
 
