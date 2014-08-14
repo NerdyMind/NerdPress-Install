@@ -99,11 +99,13 @@ git push hub master
 _EOF_
 
 echo "Creating .htaccess so prying eyes can't see the .git directory"
+cd .git/
 touch .htaccess
 cat > .htaccess <<- _EOF_
 Order allow,deny
 Deny from all
 _EOF_
+cd ..
 
 git add .
 git commit -m "Initial Import of NerdPress Files"
