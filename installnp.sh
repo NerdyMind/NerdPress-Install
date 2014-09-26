@@ -40,7 +40,12 @@ read -s dbpass
 
 #Downloads, unpacks, and cleans up WordPress
 echo "Downloading WordPress . . ."
-curl -O http://wordpress.org/latest.tar.gz
+curl -L -O http://wordpress.org/latest.tar.gz
+
+#this is a test die, for fixing the wordpress name change -die being something you apparently need to hack into BASH
+#die() { echo "$@" 1>&2 ; exit 1; }
+#die "Kaboom"
+
 echo "Installing WordPress . . ."
 tar -xzf latest.tar.gz
 rm -f latest.tar.gz
